@@ -19,12 +19,32 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 30, horizontal: 40),
+          Image.asset(
+            'assets/images/logo.jpg',
+            width: 300,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 40),
             child: TextField(
               autofocus: true,
               obscureText: true,
-              decoration: InputDecoration(labelText: 'API Key'),
+              decoration: InputDecoration(
+                labelText: 'API Key',
+                hintText: "Insert your OpenAPI key...",
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                suffixIcon: Container(
+                  margin: const EdgeInsets.all(8),
+                  child: IconButton(
+                    // color: Theme.of(context).colorScheme.primary,
+                    icon: const Icon(
+                      Icons.send,
+                    ),
+                    onPressed: () {},
+                  ),
+                ),
+              ),
             ),
           ),
           Center(
