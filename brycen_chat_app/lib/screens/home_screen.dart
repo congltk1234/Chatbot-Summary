@@ -30,6 +30,8 @@ class _HomeScreenState extends State<HomeScreen> {
               obscureText: true,
               decoration: InputDecoration(
                 labelText: 'API Key',
+                prefixIcon: Icon(Icons.key,
+                    color: Theme.of(context).colorScheme.secondary),
                 hintText: "Insert your OpenAPI key...",
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(20),
@@ -41,6 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     icon: const Icon(
                       Icons.send,
                     ),
+                    color: Theme.of(context).colorScheme.primary,
                     onPressed: () {},
                   ),
                 ),
