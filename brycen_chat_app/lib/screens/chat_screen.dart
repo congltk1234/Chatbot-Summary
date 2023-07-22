@@ -1,3 +1,5 @@
+import 'package:brycen_chat_app/widgets/chat_message.dart';
+import 'package:brycen_chat_app/widgets/new_message.dart';
 import 'package:flutter/material.dart';
 
 class ChatScreen extends StatefulWidget {
@@ -14,23 +16,31 @@ class _ChatScreenState extends State<ChatScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('ChatBot'),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: Icon(
+              Icons.exit_to_app,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+          ),
+        ],
       ),
-      body: Center(
-        child: ElevatedButton(
-          // Within the SecondScreen widget
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: const Text('Go back!'),
-        ),
+      body: const Column(
+        children: [
+          Expanded(child: ChatMessages()),
+          NewMessage(),
+        ],
       ),
+      //  Center(
+      //   child: ElevatedButton(
+      //     // Within the SecondScreen widget
+      //     onPressed: () {
+      //       Navigator.pop(context);
+      //     },
+      //     child: const Text('Go back!'),
+      //   ),
+      // ),
     );
   }
 }
-
-
-// return Scaffold(
-//       appBar: AppBar(
-//         title: const Text('Second Screen'),
-//       ),
-     
