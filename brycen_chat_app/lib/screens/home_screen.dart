@@ -1,20 +1,41 @@
 import 'package:brycen_chat_app/screens/chat_screen.dart';
+// import 'package:brycen_chat_app/screens/chat_screen.dart';
 import 'package:brycen_chat_app/screens/summarize_screen.dart';
+import 'package:brycen_chat_app/values/share_keys.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
   static const id = 'home_screen';
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final _keyController = TextEditingController();
+  late SharedPreferences prefs;
+  var key = '';
+
+  @override
+  void initState() {
+    super.initState();
+    initDefaultValue();
+  }
+
+  initDefaultValue() async {
+    prefs = await SharedPreferences.getInstance();
+    setState(() {
+      key = prefs.getString(ShareKeys.APIkey) ?? '';
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('First Screen'),
+        title: Text(key),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -28,6 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: TextField(
               autofocus: true,
               obscureText: true,
+              controller: _keyController,
               decoration: InputDecoration(
                 labelText: 'API Key',
                 prefixIcon: Icon(Icons.key,
@@ -44,7 +66,15 @@ class _HomeScreenState extends State<HomeScreen> {
                       Icons.send,
                     ),
                     color: Theme.of(context).colorScheme.primary,
-                    onPressed: () {},
+                    onPressed: () async {
+                      final newKey = _keyController.text;
+                      await prefs.setString(
+                          ShareKeys.APIkey, _keyController.text);
+                      setState(() {
+                        key = newKey;
+                        _keyController.clear();
+                      });
+                    },
                   ),
                 ),
               ),
@@ -56,6 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 ElevatedButton(
                   onPressed: () {
+                    // Navigator.pushNamed(context, ChatScreen.id);
                     Navigator.pushNamed(context, ChatScreen.id);
                   },
                   child: const Text('Chatbot'),
