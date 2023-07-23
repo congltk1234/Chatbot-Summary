@@ -1,4 +1,5 @@
 import 'package:brycen_chat_app/models/model.dart';
+import 'package:brycen_chat_app/widgets/app_bar.dart';
 import 'package:flutter/material.dart';
 
 class ChatScreen extends StatefulWidget {
@@ -24,12 +25,7 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "OpenAI's ChatGPT Flutter",
-          textAlign: TextAlign.center,
-        ),
-      ),
+      appBar: ConfigAppBar(title: "OpenAI's ChatGPT Flutter"),
       backgroundColor: Colors.white,
       body: _buildBody(context),
     );

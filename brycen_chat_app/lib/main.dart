@@ -1,5 +1,4 @@
 import 'package:brycen_chat_app/screens/chat_screen.dart';
-import 'package:brycen_chat_app/screens/chat_screen.dart';
 import 'package:brycen_chat_app/screens/home_screen.dart';
 import 'package:brycen_chat_app/screens/summarize_screen.dart';
 import 'package:brycen_chat_app/themes.dart';

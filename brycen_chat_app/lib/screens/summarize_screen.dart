@@ -1,3 +1,4 @@
+import 'package:brycen_chat_app/widgets/app_bar.dart';
 import 'package:flutter/material.dart';
 
 class SummarizeScreen extends StatefulWidget {
@@ -14,9 +15,7 @@ class _SummarizeScreenstate extends State<SummarizeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Summarize Screen'),
-      ),
+      appBar: ConfigAppBar(title: 'Summarize Screen'),
     );
   }
 }

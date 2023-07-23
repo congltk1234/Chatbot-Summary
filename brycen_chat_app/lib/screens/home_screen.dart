@@ -1,7 +1,7 @@
 import 'package:brycen_chat_app/screens/chat_screen.dart';
-// import 'package:brycen_chat_app/screens/chat_screen.dart';
 import 'package:brycen_chat_app/screens/summarize_screen.dart';
 import 'package:brycen_chat_app/values/share_keys.dart';
+import 'package:brycen_chat_app/widgets/app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -34,8 +34,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(key),
+      appBar: ConfigAppBar(
+        title: 'Home',
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
