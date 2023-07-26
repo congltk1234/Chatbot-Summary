@@ -1,5 +1,6 @@
 import 'package:brycen_chat_app/screens/chat_screen.dart';
-import 'package:brycen_chat_app/screens/home_screen.dart';
+// import 'package:brycen_chat_app/screens/home_screen.dart';
+import 'package:brycen_chat_app/screens/home_screen copy.dart';
 import 'package:brycen_chat_app/screens/summarize_screen.dart';
 import 'package:brycen_chat_app/themes.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       theme: configThemes,
       initialRoute: HomeScreen.id,
       routes: {
+        // HomeScreen.id: (_) => const HomeScreen(),
         HomeScreen.id: (_) => const HomeScreen(),
         ChatScreen.id: (_) => const ChatScreen(),
         SummarizeScreen.id: (_) => const SummarizeScreen(),
